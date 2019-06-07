@@ -1,0 +1,16 @@
+link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+// ---- Include the above in your HEAD tag --------
+// no additional media querie or css is required
+.container
+  .row.justify-content-center.align-items-center(style='height:100vh')
+    .col-4
+      .card
+        .card-body
+          h1 Type your name!
+          form(action='/login' autocomplete='off' method='post')
+            .form-group
+              input.form-control(type='text' name='username')
+            .form-group
+            button#sendlogin.btn.btn-primary(type='button') login

@@ -1,0 +1,30 @@
+head
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css' integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS' crossorigin='anonymous')
+  //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet" href="/static/fontawesome-free/css/all.min.css")
+  link(rel="stylesheet" href="/static/main.css")
+  script(src="/static/jquery/dist/jquery.min.js")
+body.bg-light
+  h5.display-4.text-center.bg-secondary.container.rounded.text-white(style='font-family: Calibri') Hello #{name}!
+  ul.d-flex.flex-wrap.container.rounded.bt-3(style='background-color: rgb(180, 180, 180);')
+    each card in cards
+      li.card.m-3.bg-light(style='max-width: 18rem;min-width: 15rem;' id=card.id)
+        .card-body(style='font-family: cantarell;')
+            div
+              form.row.justify-content-between(method="POST" action="/notes/delete")
+                input(type="hidden" value=card.id name="id")
+                div.col.far.fa-clipboard
+                button.col.btn.btn-light.fas.fa-times.etooltip(style='padding: 2px;max-width: 2vw;' type="submit")
+                  span.etooltiptext Delete note
+            p.card-text.mt-2 #{card.text}
+        .card-footer(style='font-family: cantarell light;font-size: 13px') #{card.date}
+    li.card.m-3.bg-light(style="min-width: 15rem;")
+      .card-body
+        div.row.justify-content-between
+          div.col.far.fa-clipboard
+          button.col.btn.btn-light.fas.fa-plus.etooltip(style='padding: 2px;max-width: 2vw;' type="submit" form="addNoteForm")
+            span.etooltiptext Add note
+        div.form-group(style="margin-bottom: 0px;")
+          form.pt-1(id="addNoteForm" style="margin-bottom: 0px;" method="POST" action="notes/add")
+            textarea.form-control-1(type="text" name="content" rows="3", style="resize: none;width: 100%")
+    
