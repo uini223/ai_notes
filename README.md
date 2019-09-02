@@ -1,4 +1,4 @@
-# ai_notes
+# Quick notes
 Category: Study project
 Simple node.js application for storing quick notes
 
